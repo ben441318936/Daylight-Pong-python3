@@ -7,7 +7,7 @@ from pygame import *
 from easygui import *
 
 image = "/usr/share/daylight/daylightstart/DayLightLogoSunSet.gif"
-msg = "                           Welcome to Daylight Pong \n\n\n Rules of Daylight Pong \n\n\n Player 1 \n\n Arrow up = UP \n Arrow down = DOWN\n\n Player 2 \n\n Z = UP \n S = Down"
+msg = "                           Welcome to Daylight Pong \n\n\n Rules of Daylight Pong \n\n\n Player 1 \n\n Arrow up = UP \n Arrow down = DOWN\n\n Player 2 \n\n S = UP \n Z = Down"
 choices = ["OK"]
 buttonbox(msg, image=image, choices=choices)
 
@@ -147,15 +147,15 @@ def keydown(event):
     elif event.key == K_DOWN:
         paddle2_vel = 8
     elif event.key == K_z:
-        paddle1_vel = -8
-    elif event.key == K_s:
         paddle1_vel = 8
+    elif event.key == K_s:
+        paddle1_vel = -8
 
 
 def keyup(event):
     global paddle1_vel, paddle2_vel
 
-    if event.key in (K_z, K_s):
+    if event.key in (K_s, K_z):
         paddle1_vel = 0
     elif event.key in (K_UP, K_DOWN):
         paddle2_vel = 0
